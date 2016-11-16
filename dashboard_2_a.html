@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -21,17 +22,18 @@
 
 
   <!-- CORE CSS-->
-
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
-  
+  <link href="http://cdn.datatables.net/1.10.6/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link rel="stylesheet prefetch" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet prefetch" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="css/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-  <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-
 </head>
 
 <body>
@@ -76,57 +78,275 @@
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-<div class="row">
-                <div class="col s12 m4 l4">
-                    <h4 class="header">Generador de Reportes</h4>
-                  <div class="card">
-                      <div class="card-image">
-                        <img src="images/reports.png" alt="sample image">
-                      </div>
-                      <div class="card-content">
-                          <div class="card-action">
-                        <a href="dashboard_2_a.html">Acceder</a>
-                      </div>
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="col s12 m4 l4">
-                   <h4 class="header">Escuelas y Salones</h4> 
-                  <div class="card">
-                      <div class="card-image">
-                        <img src="images/school.png" alt="sample image">
-                      </div>
-                      <div class="card-content">
-                          <div class="card-action">
-                        <a href="dashboard_2_b.html">Acceder</a>
-                      </div>
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="col s12 m4 l4">
-                    <h4 class="header">Promedios de Escuelas</h4>
-                  <div class="card">
-                      <div class="card-image">
-                        <img src="images/avg.png" alt="sample image">
-                      </div>
-                      <div class="card-content">
-                          <div class="card-action">
-                        <a href="dashboard_2_c.html">Acceder</a>
-                      </div>
-                      </div>
-                    </div>
-                </div>
+  <!-- START MAIN -->
+  <div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
 
-          <!--Card Size-->
-         
+      <!-- START LEFT SIDEBAR NAV-->
+      <aside id="left-sidebar-nav">
+          <ul id="slide-out" class="side-nav fixed leftside-navigation">
+              <li class="user-details cyan darken-2">
+                  <div class="row">
+                      <div class="col col s4 m4 l4">
+                          <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                      </div>
+                      <div class="col col s8 m8 l8">
+                          <ul id="profile-dropdown" class="dropdown-content">
+                              <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                              </li>
+                              <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                              </li>
+                              <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                              </li>
+                              <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                              </li>
+                          </ul>
+                          <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Maria Luisa<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                          <p class="user-roal">Administrador</p>
+                      </div>
+                  </div>
+              </li>
+              <li class="bold"><a href="dashboard_1.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Pagina Principal</a>
+              </li>
+              <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Correo <span class="new badge">4</span></a>
+              </li>
+              <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Calendario </a>
+              </li>
 
+          </ul>
+          <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>
+      </aside>
+      <!-- END LEFT SIDEBAR NAV-->
+
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+      <!-- START CONTENT -->
+      <section id="content">
+
+        <!--<div id="table-datatables">
+          <h4 class="header">DataTables example</h4>
+          <div class="row">
+            <div class="col s12 m4 l3">
+              <p>DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function.</p>
+
+              <p>Searching, ordering, paging etc goodness will be immediately added to the table, as shown in this example.</p>
+            </div>
+            <div class="col s12 m8 l9">
+              <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Escuela</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                        <td>63</td>
+                        <td>2011/07/25</td>
+                        <td>$170,750</td>
+                    </tr>
+                    <tr>
+                        <td>Ashton Cox</td>
+                        <td>Junior Technical Author</td>
+                        <td>San Francisco</td>
+                        <td>66</td>
+                        <td>2009/01/12</td>
+                        <td>$86,000</td>
+                    </tr>
+                    <tr>
+                        <td>Cedric Kelly</td>
+                        <td>Senior Javascript Developer</td>
+                        <td>Edinburgh</td>
+                        <td>22</td>
+                        <td>2012/03/29</td>
+                        <td>$433,060</td>
+                    </tr>
+                    <tr>
+                        <td>Airi Satou</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                        <td>33</td>
+                        <td>2008/11/28</td>
+                        <td>$162,700</td>
+                    </tr>
+                    <tr>
+                        <td>Brielle Williamson</td>
+                        <td>Integration Specialist</td>
+                        <td>New York</td>
+                        <td>61</td>
+                        <td>2012/12/02</td>
+                        <td>$372,000</td>
+                    </tr>
+                    <tr>
+                        <td>Herrod Chandler</td>
+                        <td>Sales Assistant</td>
+                        <td>San Francisco</td>
+                        <td>59</td>
+                        <td>2012/08/06</td>
+                        <td>$137,500</td>
+                    </tr>
+                    <tr>
+                        <td>Rhona Davidson</td>
+                        <td>Integration Specialist</td>
+                        <td>Tokyo</td>
+                        <td>55</td>
+                        <td>2010/10/14</td>
+                        <td>$327,900</td>
+                    </tr>
+                    <tr>
+                        <td>Colleen Hurst</td>
+                        <td>Javascript Developer</td>
+                        <td>San Francisco</td>
+                        <td>39</td>
+                        <td>2009/09/15</td>
+                        <td>$205,500</td>
+                    </tr>
+                    <tr>
+                        <td>Sonya Frost</td>
+                        <td>Software Engineer</td>
+                        <td>Edinburgh</td>
+                        <td>23</td>
+                        <td>2008/12/13</td>
+                        <td>$103,600</td>
+                    </tr>
+                    <tr>
+                        <td>Jena Gaines</td>
+                        <td>Office Manager</td>
+                        <td>London</td>
+                        <td>30</td>
+                        <td>2008/12/19</td>
+                        <td>$90,560</td>
+                    </tr>
+                    <tr>
+                        <td>Quinn Flynn</td>
+                        <td>Support Lead</td>
+                        <td>Edinburgh</td>
+                        <td>22</td>
+                        <td>2013/03/03</td>
+                        <td>$342,000</td>
+                    </tr>
+                    <tr>
+                        <td>Charde Marshall</td>
+                        <td>Regional Director</td>
+                        <td>San Francisco</td>
+                        <td>36</td>
+                        <td>2008/10/16</td>
+                        <td>$470,600</td>
+                    </tr>
+                    <tr>
+                        <td>Haley Kennedy</td>
+                        <td>Senior Marketing Designer</td>
+                        <td>London</td>
+                        <td>43</td>
+                        <td>2012/12/18</td>
+                        <td>$313,500</td>
+                    </tr>
+                    
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>-->
+
+<div class="container">
+        <h1>Agregar Informacion</h1>
+        <p>Through the powers of <strong>contenteditable</strong> and some simple jQuery you can easily create a custom editable table. No need for a robust JavaScript library anymore these days.</p>
+        
+        <ul>
+            <li>An editable table that exports a hash array. Dynamically compiles rows from headers</li> 
+            <li>Simple / powerful features such as add row, remove row, move row up/down.</li>
+        </ul>
+        
+        <div id="table" class="table-editable">
+            <span class="table-add glyphicon glyphicon-plus"></span>
+            <table class="table">
+            <tr>
+                <th>Escuela</th>
+                <th>Salon</th>
+                <th>Asistencia</th>
+                <th>Promedio</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td contenteditable="true">Rangel Frias</td>
+                <td contenteditable="true">3A</td>
+                <td contenteditable="true">30</td>
+                <td contenteditable="true">89</td>
+                <td>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+                </td>
+                <td>
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                </td>
+            </tr>
+            <!-- This is our clonable table line -->
+            <tr class="hide">
+                <td contenteditable="true">Nombre</td>
+                <td contenteditable="true">Salon</td>
+                <td contenteditable="true">Asistencia</td>
+                <td contenteditable="true">Promedio</td>
+                <td>
+                <span class="table-remove glyphicon glyphicon-remove"></span>
+                </td>
+                <td>
+                <span class="table-up glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down glyphicon glyphicon-arrow-down"></span>
+                </td>
+            </tr>
+            </table>
+        </div>
+  
+  <button id="export-btn" class="btn btn-primary">Generar Reporte</button>
+  <button class="btn btn-primary">Actualizar Informacion</button>
+  <p id="export"></p>
+</div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+
+    <script src="js/index.js"></script>
+
+        <br>
+        <div class="divider"></div>
+
+        <!--start container-->
+        <!--<div class="container">
+          <div class="section">
+
+            <p class="caption">A Simple Blank Page to use it for your custome design and elements.</p>
+            <div class="divider"></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </div>
         </div>
         <!--end container-->
-
       </section>
       <!-- END CONTENT -->
+
+
+
 
       <!-- //////////////////////////////////////////////////////////////////////////// -->
       <!-- START RIGHT SIDEBAR NAV-->
@@ -276,6 +496,7 @@
 
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
+
 
 
 

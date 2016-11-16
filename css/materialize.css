@@ -5545,7 +5545,7 @@ small {
     left: 0;
     padding: 20px; }
   .card .card-title {
-    color: #fff;
+    color: #232121;
     font-size: 24px;
     font-weight: 300; }
     .card .card-title.activator {
@@ -5614,7 +5614,7 @@ small {
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 20px; }
     .card .card-action a {
-      color: #ffab40;
+      color: #211dd6;
       margin-right: 20px;
       -webkit-transition: color 0.3s ease;
       -moz-transition: color 0.3s ease;

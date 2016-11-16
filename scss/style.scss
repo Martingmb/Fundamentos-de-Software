@@ -1,0 +1,156 @@
+@import "compass/css3";
+
+.table-editable {
+  position: relative;
+  
+  .glyphicon {
+    font-size: 20px;
+  }
+}
+
+.table-remove {
+  color: #700;
+  cursor: pointer;
+  
+  &:hover {
+    color: #f00;
+  }
+}
+
+.table-up, .table-down {
+  color: #007;
+  cursor: pointer;
+  
+  &:hover {
+    color: #00f;
+  }
+}
+
+.table-add {
+  color: #070;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 0;
+  
+  &:hover {
+    color: #0b0;
+  }
+}
+
+body
+  background: transparentize(blue,0.5)
+.card-container
+  position: relative
+  flex-wrap: wrap
+  overflow: hidden
+  // background: transparentize(blue,0.5)
+  padding-top: 15px
+  padding-bottom: 15px
+  display: flex
+  justify-content: space-around
+  align-items: auto
+  
+.card
+  min-width: 275px
+  width: 275px
+  position: relative
+  margin: 15px 15px
+  height: 350px
+  border-radius: 7px
+  background-size: cover
+  background: transparentize(black,0.8)
+  box-shadow: 5px 5px 10px 1px transparentize(black,0.7)
+  transition: 0.2s all linear
+  border: 1px solid transparentize(grey,0.85)
+  box-sizing: border-box
+  .card-social
+    position: absolute
+    height: 75px
+    width: 100%
+    background: red
+    border-bottom-right-radius: 5px
+    border-bottom-left-radius: 5px
+    background: transparentize(black,0.4)
+    box-shadow: 2px 2px 10px 0px transparentize(black,0.5)
+    top: 275px
+    ul
+      padding: 0
+      margin: 0
+      list-style: none
+      width: 100%
+      height: 100%
+      display: flex
+      justify-content: space-around
+      li
+        // width: 30%
+        height: 100%
+        text-align: center
+        line-height: 75px
+        font-size: 1.5em
+        color: transparentize(white,0.15)
+        text-shadow: 5px 5px 5px transparentize(black,0.5)
+        &:hover
+          text-shadow: 7px 7px 5px transparentize(black,0.3)
+          transition: all 0.1s linear
+  .card-image
+    width: 100%
+    height: 275px
+    position: relative
+    background-image: url('https://d13yacurqjgara.cloudfront.net/users/150724/screenshots/2211976/365_the_end_1x.png')
+    border-top-right-radius: 5px
+    border-top-left-radius: 5px
+  .card-info
+    position: relative
+    width: 100%
+    height: 35px
+    line-height: 35px
+    top: -265px
+    border-top-right-radius: 5px
+    border-top-left-radius: 5px
+    font-family: 'Open Sans'
+    color: transparentize(white,0.15)
+    .card-title
+      line-height: 35px
+      height: 35px
+      position: relative
+      top: 0px
+      font-size: 25px
+      text-align: center
+      background: transparentize(black,0.4)
+      box-shadow: 5px 5px 10px 2px transparentize(black,0.7)
+    .card-detail
+      line-height: 1.5em
+      font-size: 1em
+      height: 220px
+      background: transparentize(black,0.4)
+      position: relative
+      top: 5px
+      padding: 5px 20px 0px 20px
+      opacity: 0
+      transform: scaleY(0)
+      transform-origin: center top
+      box-shadow: 5px 5px 10px 2px transparentize(black,0.7)    
+  &:hover
+    box-shadow: 10px 10px 10px 1px transparentize(black,0.7)
+    .card-info    
+      .card-title
+        box-shadow: 10px 10px 10px 1px transparentize(black,0.7)
+        transition: 0.3s all linear
+      .card-detail
+        opacity: 1
+        box-shadow: 10px 10px 10px 1px transparentize(black,0.7)
+        transition: 0.35s all linear
+        transition-delay: 0.1s
+        transform: scaleY(1)
+
+  &:nth-of-type(2)
+    .card-image
+      background-image: url('https://d13yacurqjgara.cloudfront.net/users/150724/screenshots/2164720/337_writing_blog_post_1x.png')  
+  &:nth-of-type(3)
+    .card-image
+      background-image: url('https://d13yacurqjgara.cloudfront.net/users/150724/screenshots/2377046/kaylo_ren_lighsaber_800x600_1x.png')
+  &:nth-of-type(4)
+    .card-image
+      background-image: url('https://d13yacurqjgara.cloudfront.net/users/150724/screenshots/2203790/362_chasing_dreams_1x.png')
+
